@@ -3,7 +3,14 @@
 #include <string.h>
 #define M 200
 #define N 200
-
+#define RED "\e[0;31m"
+#define GRN "\e[0;32m"
+#define YEL "\e[0;33m"
+#define BLU "\e[0;34m"
+#define MAG "\e[0;35m"
+#define CYN "\e[0;36m"
+#define WHT "\e[0;37m"
+#define reset "\e[0m"
 
 
 
@@ -22,50 +29,58 @@ int main() {
 		do{
 			int i = 0;
 			for(i=0 ;i < 65 ;i++){
-				printf("*");
+				printf(BLU"*"reset);
 			}
 			printf("\n");
-			printf("*\t                                                 \t*\n");
-			printf("*\t 1. Ajouter un livre au stock.                   \t*\n");
-			printf("*\t 2. Afficher tous les livres disponibles.        \t*\n");
-			printf("*\t 3. Rechercher un livre par son titre.           \t*\n");
-			printf("*\t 4. Mettre a jour la quantite d'un livre.        \t*\n");
-			printf("*\t 5. Supprimer un livre du stock.                 \t*\n");
-			printf("*\t 6. Afficher le nombre total de livres en stock. \t*\n");
-			printf("*\t 7. Quitter le programme.                        \t*\n");
+			printf(BLU"*\t                                                 \t*\n"reset);
+			printf(BLU"*\t 1. Ajouter un livre au stock.                   \t*\n"reset);
+			printf(GRN"*\t 2. Afficher tous les livres disponibles.        \t*\n"reset);
+			printf(YEL"*\t 3. Rechercher un livre par son titre.           \t*\n"reset);
+			printf(MAG"*\t 4. Mettre a jour la quantite d'un livre.        \t*\n"reset);
+			printf(CYN"*\t 5. Supprimer un livre du stock.                 \t*\n"reset);
+			printf(WHT"*\t 6. Afficher le nombre total de livres en stock. \t*\n"reset);
+			printf(RED"*\t 7. Quitter le programme.                        \t*\n");
 			printf("*\t                                                 \t*\n");
 			for(i=0 ;i < 65 ;i++){
 				printf("*");
 			}
-			printf("\n");
+			printf("\n"reset);
 			printf("Donner votre choix : ");
 			scanf("%d",&choix);
 			
 		} while(choix <=0 && choix >7);
 		switch (choix){
 			case 1 :
-				printf("\n");
-				printf("\t donner le titre du %d livre     : ",n+1);
+				printf(BLU"************************************************************\n");
+				printf("**                    Ajouter un livre                    **\n");
+				printf("************************************************************\n");
+				printf("\t Donner le titre du %d livre     : ",n+1);
 				scanf("%s",titres[n]);
-				printf("\t donner l'auteur du %d livre     : ",n+1);
+				printf("\t Donner l'auteur du %d livre     : ",n+1);
 				scanf("%s",auteurs[n]);
-				printf("\t donner le prix du %d livre      : ",n+1);
+				printf("\t Donner le prix du %d livre      : ",n+1);
 				scanf("%f",&prix[n]);
-				printf("\t donner la quantiter du %d livre : ",n+1);
+				printf("\t Donner la quantiter du %d livre : ",n+1);
 				scanf("%d",&quantite[n]);
 				n++;
-				printf("\t Le Livre a ete ajouter en succee.\n");
-				for(i=0 ;i < 65 ;i++){
-					printf("*");
-				}
-				printf("\n");
+				printf("************************************************************\n");
+				printf("**           Le Livre a ete ajouter avec succee.            **");
+				printf("************************************************************\n");
+				printf("Appuyer sur entrer ! "reset);
 				getchar();
 				getchar();
 				system("cls");
 				break;
 			case 2 : 
-				//print the
-				printf("*");
+				if(n==0){
+					printf(GRN"La biblioteque est vide!\n");
+					printf("Appuyer sur entrer ! "reset);
+					getchar();
+					getchar();
+					system("cls");
+					break;
+				}
+				printf(GRN"*");
 				for(i=0;i<col_width_titre+4;i++){
 					printf("*");
 				}
@@ -123,13 +138,14 @@ int main() {
 					printf("*");
 				}
 				printf("*\n");
+				printf("Appuyer sur entrer ! "reset);
 				getchar();
 				getchar();
 				system("cls");
 				break;
 			case 3 :
 				char tit[M];
-				printf("donner le titre du livre  a rechercher : ");
+				printf(YEL"donner le titre du livre  a rechercher : ");
 				scanf("%s",tit);
 				printf("\n");
 				int trouver = 0;
@@ -209,12 +225,16 @@ int main() {
 					}
 					printf("*\n");
 				}
+				printf("Appuyer sur entrer ! "reset);
 				getchar();
 				getchar();
 				system("cls");	
 				break;
 			case 4 : 
-				printf("\n -- Mise a jour d' un livre -- \n");
+				printf(MAG"**************************************************************\n");
+				printf("**                 Mise a jour d' un livre                   **\n");
+				printf("***************************************************************\n");
+
 				int qte;
 				printf("donner le titre du tableaux a mise a jour : ");
 				scanf("%s",tit);
@@ -292,12 +312,15 @@ int main() {
 					}
 					printf("*\n");
 				}
+				printf("Appuyer sur entrer ! "reset);
 				getchar();
 				getchar();
 				system("cls");
 				break;
 			case 5 :
-				printf("\n -- Suppression d'un element du tableaux -- \n");
+				printf(CYN"***************************************************************\n");
+				printf("**           Suppression d'un element du tableaux            **\n");
+				printf("***************************************************************\n");
 				int s=0;
 				printf("Donner le titre du livre a supprimer : ");
 				scanf("%s",tit);
@@ -380,12 +403,19 @@ int main() {
 					}
 					printf("*\n");
 				}
+				printf("Appuyer sur entrer ! "reset);
 				getchar();
 				getchar();
 				system("cls");
 				break;
 			case 6 :
-				printf("Le nombre totale des livres en la biblioteque est : %d .\n",n);
+				if(n==0){
+					printf(WHT"Il y a aucun livre dans la biblioteque.\n"reset);
+				}
+				else{
+					printf(WHT"Le nombre totale des livres en la biblioteque est : %d .\n",n ,reset);
+				}
+				printf(WHT"Appuyer sur entrer ! "reset);
 				getchar();
 				getchar();
 				system("cls");
