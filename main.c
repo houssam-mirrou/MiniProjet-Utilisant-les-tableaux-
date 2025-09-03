@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "tableaux.h"
+#include <string.h>
 #define M 200
 #define N 200
 
@@ -305,10 +305,10 @@ int main() {
 					if(strcmp(titres[i],tit) == 0){
 						int j;
 						for(j=i;j<n-1;j++){
-							strcpy(titres[i],titres[j]);
-							strcpy(auteurs[i],auteurs[j]);
-							prix[i]=prix[j];
-							quantite[i]=quantite[j];
+							strcpy(titres[j],titres[j+1]);
+							strcpy(auteurs[j],auteurs[j+1]);
+							prix[j]=prix[j+1];
+							quantite[j]=quantite[j]+1;
 						}
 						s=1;
 						n--;
