@@ -44,17 +44,14 @@ int main() {
 		} while(choix <=0 && choix >7);
 		switch (choix){
 			case 1 :
-				for(i=0 ;i < 65 ;i++){
-					printf("*");
-				}
 				printf("\n");
-				printf("*\t donner le titre du %d livre     : ",n+1);
+				printf("\t donner le titre du %d livre     : ",n+1);
 				scanf("%s",titres[n]);
-				printf("*\t donner l'auteur du %d livre     : ",n+1);
+				printf("\t donner l'auteur du %d livre     : ",n+1);
 				scanf("%s",auteurs[n]);
-				printf("*\t donner le prix du %d livre      : ",n+1);
+				printf("\t donner le prix du %d livre      : ",n+1);
 				scanf("%f",&prix[n]);
-				printf("*\t donner la quantiter du %d livre : ",n+1);
+				printf("\t donner la quantiter du %d livre : ",n+1);
 				scanf("%d",&quantite[n]);
 				n++;
 				printf("\t Le Livre a ete ajouter en succee.\n");
@@ -67,60 +64,62 @@ int main() {
 				system("cls");
 				break;
 			case 2 : 
-				
+				//print the
 				printf("*");
-				for(i=0;i<col_width_titre+2;i++){
+				for(i=0;i<col_width_titre+4;i++){
 					printf("*");
 				}
 				printf("*");
-				for(i=0;i<col_width_titre+2;i++){
+				for(i=0;i<col_width_titre+3;i++){
 					printf("*");
 				}
 				printf("*");
-				for(i=0;i<col_width_titre+2;i++){
+				for(i=0;i<col_width_titre+3;i++){
 					printf("*");
 				}printf("*");
-				for(i=0;i<col_width_titre+2;i++){
+				for(i=0;i<col_width_titre+3;i++){
 					printf("*");
 				}
 				printf("*\n");
-				printf("* %-*s * %-*s * %-*s *\n", col_width_titre, "Titre",
+				printf("** %-*s ** %-*s ** %-*s ** %-*s **\n", col_width_titre, "Titre",
                                      col_width_titre, "Auteur",
                                      col_width_titre, "Prix",
 									 col_width_titre,"Quantite");
 				printf("*");
-				for(i=0;i<col_width_titre+2;i++){
+				for(i=0;i<col_width_titre+4;i++){
 					printf("*");
 				}
 				printf("*");
-				for(i=0;i<col_width_titre+2;i++){
+				for(i=0;i<col_width_titre+3;i++){
 					printf("*");
 				}
 				printf("*");
-				for(i=0;i<col_width_titre+2;i++){
+				for(i=0;i<col_width_titre+3;i++){
 					printf("*");
 				}printf("*");
-				for(i=0;i<col_width_titre+2;i++){
+				for(i=0;i<col_width_titre+3;i++){
 					printf("*");
 				}
 				printf("*\n");
-				printf("* %**s * %**s * %**s *\n", col_width_titre, titres[i],
+				for(int i=0;i<n;i++){
+					printf("** %-*s ** %-*s ** %-*.2f ** %-*d **\n", col_width_titre, titres[i],
                                      col_width_titre, auteurs[i],
                                      col_width_titre, prix[i],
 									 col_width_titre,quantite[i]);
+				}
 				printf("*");
-				for(i=0;i<col_width_titre+2;i++){
+				for(i=0;i<col_width_titre+4;i++){
 					printf("*");
 				}
 				printf("*");
-				for(i=0;i<col_width_titre+2;i++){
+				for(i=0;i<col_width_titre+3;i++){
 					printf("*");
 				}
 				printf("*");
-				for(i=0;i<col_width_titre+2;i++){
+				for(i=0;i<col_width_titre+3;i++){
 					printf("*");
 				}printf("*");
-				for(i=0;i<col_width_titre+2;i++){
+				for(i=0;i<col_width_titre+3;i++){
 					printf("*");
 				}
 				printf("*\n");
@@ -129,23 +128,90 @@ int main() {
 				system("cls");
 				break;
 			case 3 :
-				for(i=0 ;i < 20 ;i++){
-					printf("*");
-				}
 				char tit[M];
 				printf("donner le titre du livre  a rechercher : ");
 				scanf("%s",tit);
+				printf("\n");
 				int trouver = 0;
 				for(i = 0;i<n;i++){
 					if(strcmp(titres[i],tit) == 0){
+						int j=0;
 						trouver=1;
-						printf("*\t Titre *\t Auteur *\t Prix *\t Quantite     \t*\n");
-						printf("*\t %s \t %s \t %.2f \t %d \t*\n",titres[i],auteurs[i],prix[i],quantite[i]);
+						printf("*");
+						for(j=0;j<col_width_titre+4;j++){
+							printf("*");
+						}
+						printf("*");
+						for(j=0;j<col_width_titre+3;j++){
+							printf("*");
+						}
+						printf("*");
+						for(j=0;j<col_width_titre+3;j++){
+							printf("*");
+						}printf("*");
+						for(j=0;j<col_width_titre+3;j++){
+							printf("*");
+						}
+						printf("*\n");
+						printf("** %-*s ** %-*s ** %-*.2f ** %-*d **\n", col_width_titre, titres[i],
+                                     col_width_titre, auteurs[i],
+                                     col_width_titre, prix[i],
+									 col_width_titre,quantite[i]);
+						printf("*");
+						for(j=0;j<col_width_titre+4;j++){
+							printf("*");
+						}
+						printf("*");
+						for(j=0;j<col_width_titre+3;j++){
+							printf("*");
+						}
+						printf("*");
+						for(j=0;j<col_width_titre+3;j++){
+							printf("*");
+						}printf("*");
+						for(j=0;j<col_width_titre+3;j++){
+							printf("*");
+						}
+						printf("*\n");
 					}
 				}
 				if(trouver == 0){
-					printf("*\t le livre n'existe pas dans la biblioteque \t*\n");
+					printf("*");
+					for(i=0;i<col_width_titre+4;i++){
+						printf("*");
+					}
+					printf("*");
+					for(i=0;i<col_width_titre+3;i++){
+						printf("*");
+					}
+					printf("*");
+					for(i=0;i<col_width_titre+3;i++){
+						printf("*");
+					}printf("*");
+					for(i=0;i<col_width_titre+3;i++){
+						printf("*");
+					}
+					printf("\n");
+					printf("** %-*s **\n", ((col_width_titre*4)+11), "le livre n'existe pas dans la biblioteque");
+					printf("*");
+					for(i=0;i<col_width_titre+4;i++){
+						printf("*");
+					}
+					for(i=0;i<col_width_titre+3;i++){
+						printf("*");
+					}
+					printf("*");
+					for(i=0;i<col_width_titre+3;i++){
+						printf("*");
+					}printf("*");
+					for(i=0;i<col_width_titre+3;i++){
+						printf("*");
+					}
+					printf("*\n");
 				}
+				getchar();
+				getchar();
+				system("cls");	
 				break;
 			case 4 : 
 				printf("\n -- Mise a jour d' un livre -- \n");
@@ -158,13 +224,77 @@ int main() {
 				for(i=0;i<n;i++){
 					if(strcmp(titres[i],tit) == 0){
 						quantite[i] = qte;
-						printf("Le mise a jour a ete effectuer en succee;\n");
+						t=1;
+						printf("*");
+						for(i=0;i<col_width_titre+4;i++){
+							printf("*");
+						}
+						for(i=0;i<col_width_titre+3;i++){
+							printf("*");
+						}
+						printf("*");
+						for(i=0;i<col_width_titre+3;i++){
+							printf("*");
+						}printf("*");
+						for(i=0;i<col_width_titre+3;i++){
+							printf("*");
+						}
+						printf("*\n");
+						printf("** %-*s **\n",((col_width_titre*4)+11),"La quantite du livre a changer");
+						printf("*");
+						for(i=0;i<col_width_titre+4;i++){
+							printf("*");
+						}
+						for(i=0;i<col_width_titre+3;i++){
+							printf("*");
+						}
+						printf("*");
+						for(i=0;i<col_width_titre+3;i++){
+							printf("*");
+						}printf("*");
+						for(i=0;i<col_width_titre+3;i++){
+							printf("*");
+						}
+						printf("*\n");
 						break;
 					}
 				}
-				if(t==1){
-					printf("Le mise a jour n'a pas ete effectuer en succee. \n");
+				if(t==0){
+					printf("*");
+					for(i=0;i<col_width_titre+4;i++){
+						printf("*");
+					}
+					for(i=0;i<col_width_titre+3;i++){
+						printf("*");
+					}
+					printf("*");
+					for(i=0;i<col_width_titre+3;i++){
+						printf("*");
+					}printf("*");
+					for(i=0;i<col_width_titre+3;i++){
+						printf("*");
+					}
+					printf("*\n");
+					printf("** %-*s **\n",((col_width_titre*4)+11),"Le livre est indisponible");
+					printf("*");
+					for(i=0;i<col_width_titre+4;i++){
+						printf("*");
+					}
+					for(i=0;i<col_width_titre+3;i++){
+						printf("*");
+					}
+					printf("*");
+					for(i=0;i<col_width_titre+3;i++){
+						printf("*");
+					}printf("*");
+					for(i=0;i<col_width_titre+3;i++){
+						printf("*");
+					}
+					printf("*\n");
 				}
+				getchar();
+				getchar();
+				system("cls");
 				break;
 			case 5 :
 				printf("\n -- Suppression d'un element du tableaux -- \n");
@@ -185,14 +315,80 @@ int main() {
 					}
 				}
 				if(s==0){
-					printf("le livre n'est pas trouver dans le tableaux.\n");
+					printf("*");
+					for(i=0;i<col_width_titre+4;i++){
+						printf("*");
+					}
+					for(i=0;i<col_width_titre+3;i++){
+						printf("*");
+					}
+					printf("*");
+					for(i=0;i<col_width_titre+3;i++){
+						printf("*");
+					}printf("*");
+					for(i=0;i<col_width_titre+3;i++){
+						printf("*");
+					}
+					printf("*\n");
+					printf("** %-*s **\n",((col_width_titre*4)+11),"le livre est indisponible.");
+					printf("*");
+					for(i=0;i<col_width_titre+4;i++){
+						printf("*");
+					}
+					for(i=0;i<col_width_titre+3;i++){
+						printf("*");
+					}
+					printf("*");
+					for(i=0;i<col_width_titre+3;i++){
+						printf("*");
+					}printf("*");
+					for(i=0;i<col_width_titre+3;i++){
+						printf("*");
+					}
+					printf("*\n");
 				}
 				else{
-					printf("La suppression a effectuer en succee.\n");
+					printf("*");
+					for(i=0;i<col_width_titre+4;i++){
+						printf("*");
+					}
+					for(i=0;i<col_width_titre+3;i++){
+						printf("*");
+					}
+					printf("*");
+					for(i=0;i<col_width_titre+3;i++){
+						printf("*");
+					}printf("*");
+					for(i=0;i<col_width_titre+3;i++){
+						printf("*");
+					}
+					printf("*\n");
+					printf("** %-*s **\n",((col_width_titre*4)+11),"La suppression a effectuer en succee.");
+					printf("*");
+					for(i=0;i<col_width_titre+4;i++){
+						printf("*");
+					}
+					for(i=0;i<col_width_titre+3;i++){
+						printf("*");
+					}
+					printf("*");
+					for(i=0;i<col_width_titre+3;i++){
+						printf("*");
+					}printf("*");
+					for(i=0;i<col_width_titre+3;i++){
+						printf("*");
+					}
+					printf("*\n");
 				}
+				getchar();
+				getchar();
+				system("cls");
 				break;
 			case 6 :
 				printf("Le nombre totale des livres en la biblioteque est : %d .\n",n);
+				getchar();
+				getchar();
+				system("cls");
 				break;
 			case 7 :
 				return 0;
